@@ -1,0 +1,158 @@
+
+
+
+
+<!-- products-breadcrumb -->
+	<div class="products-breadcrumb">
+		<div class="container">
+			<ul>
+				<li><i class="fa fa-home" aria-hidden="true"></i><a href="/">Home</a><span>|</span></li>
+				<li>Sign In & Sign Up</li>
+			</ul>
+		</div>
+	</div>
+<!-- //products-breadcrumb -->
+<!-- banner -->
+	<div class="banner">
+		<div class="w3l_banner_nav_left">
+		<nav class="navbar nav_bottom">
+			 <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header nav_2">
+				  <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+			   </div> 
+			   <!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					<ul class="nav navbar-nav nav_1">
+						<li><a href="products#">Branded Foods</a></li>
+						<li><a href="household#">Households</a></li>
+						<li class="dropdown mega-dropdown active">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Veggies & Fruits<span class="caret"></span></a>				
+							<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+								<div class="w3ls_vegetables">
+									<ul>	
+										<li><a href="vegetables#">Vegetables</a></li>
+										<li><a href="vegetables#">Fruits</a></li>
+									</ul>
+								</div>                  
+							</div>				
+						</li>
+						<li><a href="kitchen#">Kitchen</a></li>
+						<li><a href="short-codes#">Short Codes</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Beverages<span class="caret"></span></a>
+							<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+								<div class="w3ls_vegetables">
+									<ul>
+										<li><a href="drinks#">Soft Drinks</a></li>
+										<li><a href="drinks#">Juices</a></li>
+									</ul>
+								</div>                  
+							</div>	
+						</li>
+						<li><a href="pet#">Pet Food</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
+							<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+								<div class="w3ls_vegetables">
+									<ul>
+										<li><a href="frozen#">Frozen Snacks</a></li>
+										<li><a href="frozen#">Frozen Nonveg</a></li>
+									</ul>
+								</div>                  
+							</div>	
+						</li>
+						<li><a href="bread#">Bread & Bakery</a></li>
+					</ul>
+				 </div><!-- /.navbar-collapse -->
+			</nav>
+		</div>
+		<div class="w3l_banner_nav_right">
+
+
+<!-- signup -->
+		<div class="w3_login">
+			<h3>Sign In & Sign Up</h3>
+			<div class="w3_login_module">
+				<div class="module form-module">
+				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+					<div class="tooltip">click here to signup Using Otp</div>
+				  </div>
+				  <div class="form">
+					<h2>Create an account</h2>
+					<form action="/enter-signup-otp" method="post" id="basic-form" name="myForm" onsubmit="return validateForm()">
+               <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Full Name"  >				
+					  <input type="email" name="email" id="email" placeholder="Email" required>
+					  <input type="text" name="phonenumber" id="phonenumber" placeholder="10 digit Phone Number" >
+					  <input type="password" name="Password" id="Password" placeholder="Password"  >
+					  <input type="submit" value="Verify">
+					</form>
+				  </div>
+
+
+				  <div class="form">
+					<h2>verify phone number</h2>
+
+					<form method="POST" action="/enter-signup-otp" >
+				 <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Full Name"  >				
+					  <input type="email" name="email" id="email" placeholder="Email" required>
+					  <input type="text" name="phonenumber" id="phonenumber" placeholder="10 digit Phone Number" >
+					  <input type="password" name="Password" id="Password" placeholder="Password"  >
+					  <input type="submit" value="send Otp">
+					</form>
+				  </div>
+				  {{!-- <div class="cta"><a href="/otp-register">Register  Using Otp</a></div> --}}
+				</div>
+			</div>
+			<script>
+				$('.toggle').click(function(){
+				  // Switches the Icon
+				  $(this).children('i').toggleClass('fa-pencil');
+				  // Switches the forms  
+				  $('.form').animate({
+					height: "toggle",
+					'padding-top': 'toggle',
+					'padding-bottom': 'toggle',
+					opacity: "toggle"
+				  }, "slow");
+				});
+			</script>
+		</div>
+<!-- //login -->
+		</div>
+		<div class="clearfix"></div>
+	</div>
+<!-- //banner -->
+{{!--  --}}
+
+
+   		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+</script>
+
+<script>
+	function validateForm() {
+  var x = document.forms["myForm"]["first_name"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+
+var y=document.forms["myForm"]["Password"].value;
+if(y==""){
+	alert("fill the password")
+}
+
+  }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<

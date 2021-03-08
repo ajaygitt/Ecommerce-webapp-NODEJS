@@ -1,0 +1,80 @@
+
+  <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <ul class="nav nav-pills">
+  
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Take actions</a>
+        <div class="dropdown-menu">
+            <a href="/create-offer" class="dropdown-item">create a new offer Product Wise</a>
+             <a href="/create-offer-ByCategory" class="dropdown-item">create a new offer Category Wise</a>
+              
+            <a href="/delete-offer" class="dropdown-item">delete an offer</a>
+            <a href="#" class="dropdown-item">view order by user wise</a>
+            {{!-- <div class="dropdown-divider"></div>
+            <a href="#"class="dropdown-item">Trash</a>
+        </div> --}}
+    </li>
+  
+      <li class="nav-item active">
+        <a class="nav-link" href="/adminlogout">Logout <span class="sr-only">(current)</span></a>
+      </li>
+   
+    </ul>
+  </div>
+</nav>
+
+
+
+<body>
+
+
+
+
+
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+            <th style="font-weight: bolder;">product name</th>  
+            <th style="font-weight: bolder;">Image</th>  
+             <th style="font-weight: bolder;">Category</th> 
+              <th style="font-weight: bolder;">discount(%)</th>  
+            <th style="font-weight: bolder;">Valid From</th>
+            <th style="font-weight: bolder;"> Valid To</th>
+              <th style="font-weight: bolder;"> Actual amount</th>
+             <th style="font-weight: bolder;">  After Discount Amount</th>
+         <th style="font-weight: bolder;"> delete action</th>      
+            {{!-- <th></th>  --}}
+          </tr>  
+        </thead>  
+        <tbody>  
+          {{#each data}}
+          <tr>  
+        
+           
+            <td>{{this.name}}</td>
+             <td><img  style="width: 40px; height: 70px;" src="images/product-image/{{this._id}}.jpg" alt=""></td>    
+            <td>{{this.category}}</td>  
+          <td>{{this.discount}}%</td>
+          <td>{{this.valid_from}}</td>
+          <td>{{this.valid_to}}</td>
+          <td>{{this.oldPrice}}</td>
+         <td>{{this.price}}</td>
+      <td> <a href="/delete-offer/{{this._id}}"> <button class="btn btn-danger">delete offer</button></a></td>  
+          </tr>  
+      
+     {{/each}}
+        </tbody>  
+      </table>  
+	  </div>
+</body>  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</body>
+</html>  

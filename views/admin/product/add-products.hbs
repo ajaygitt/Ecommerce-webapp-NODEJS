@@ -1,0 +1,601 @@
+{{!-- 
+
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.0.0/cropper.min.css" integrity="sha256-FeDcPwV8ZgxG1MU5L/b2i8clOmqZJKK0eyDHqrQaXxY=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.0.0/cropper.min.js"></script>
+
+<form class="tm-edit-product-form" method="POST" enctype="multipart/form-data" action="/create-product">
+
+<button type="submit">submit</button>
+
+</form>
+<script>
+                                $('#pic1').click(function(){
+                                    $('#img1').click()
+                                })
+                                function readURL(input) {
+                                    if (input.files && input.files[0]) {
+                                      var reader = new FileReader();
+                                      reader.onload = function (e) {
+                                        $('#pic1').attr('src', e.target.result)
+                                      };
+                                      reader.readAsDataURL(input.files[0]);
+                                      setTimeout(initCropper, 1000);
+                                      $('#crop_button').css({"visibility": "visible"})
+                                    }
+                                  }
+                                  function initCropper(){
+                                    console.log("Came here")
+                                    var image = document.getElementById('pic1');
+                                    var cropper = new Cropper(image, {
+                                      aspectRatio: 16 / 9,
+                                      crop: function(e) {
+                                        console.log(e.detail.x);
+                                        console.log(e.detail.y);
+                                      }
+                                    });
+                                  
+                                    // On crop button clicked
+                                    document.getElementById('crop_button').addEventListener('click', function(){
+                                      var imgurl =  cropper.getCroppedCanvas().toDataURL();
+                                      var img = document.createElement("img");
+                                      img.src = imgurl;
+                                      img.width="200";
+                                      img.height='100';
+                                      $('#crop_button').css({"visibility": "hidden"})
+                                      $('#crop').css({"visibility": "hidden"})
+                                      document.getElementById("image").replaceWith(img)
+                                      document.getElementById("images1").replaceWith(img)
+                                      var filereader = new FileReader()
+                                        console.log('here')
+                                     
+                                    })
+                                  }
+                            </script> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Add Product - Dashboard HTML Template</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"/>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.0.0/cropper.min.js"></script>
+
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.0.0/cropper.min.css" integrity="sha256-FeDcPwV8ZgxG1MU5L/b2i8clOmqZJKK0eyDHqrQaXxY=" crossorigin="anonymous" />
+
+
+
+
+
+
+
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+  </head>
+  <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-palette"></i>
+                                    <span class="d-lg-none">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-planet">All Notifications</i>
+                                    
+                                    <span class="d-lg-none">Notification</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                   
+                                   
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nc-icon nc-zoom-split"></i>
+                                    <span class="d-lg-block">&nbsp;Search</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <span class="no-icon">Account</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+    <div class="container tm-mt-big tm-mb-big">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">Add Product</h2>
+              </div>
+            </div>
+            <div class="row tm-edit-product-row">
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <form  class="tm-edit-product-form" method="POST" enctype="multipart/form-data" action="/create-product">
+                  <div class="form-group mb-3">
+                    <label
+                      for="product_name"
+                      >Product Name
+                    </label>
+                    <input
+                      id="product_name"
+                      name="name"
+                      type="text"
+                      class="form-control validate"
+                      required
+                    />
+                  </div>
+
+<div class="form-group mb-3">
+                    <label
+                      for="product_varient"
+                      >Product Model or Varient
+                    </label>
+                    <input
+                      id="product_varient"
+                      name="product_varient"
+                      type="text"
+                      class="form-control validate"
+                      required
+                    />
+                  </div>
+
+  <div class="form-group mb-3">
+                  <label
+                      for="category"
+                      >select a manufacturer</label
+                    >
+                     
+                    <select
+                      class="custom-select tm-select-accounts"
+                      id="manufacturer"
+                      name="manufacturer">
+                    
+                  
+                      <option selected>Select manufacturer</option>
+
+                      
+                      {{#each manufacturer}} 
+                       <option value="{{this.Manufaturer}}">{{this.Manufaturer}}</option>
+                     
+                       {{/each}}
+                    </select>
+                   
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="price"
+                      >Price (IN INR)
+                    </label>
+                    <input
+                      id="price"
+                      name="price"
+                      type="number"
+                      class="form-control validate"
+                      required
+                    />
+                  </div>
+                   
+                   <div class="form-group mb-3">
+                  <label
+                      for="category"
+                      >Category</label
+                    >
+                     
+                    <select
+                      class="custom-select tm-select-accounts"
+                      id="category"
+                      name="category">
+                    
+                   
+                      <option selected>Select category</option>
+                      {{#each category}} 
+                       <option value="{{this.category}}">{{this.category}}</option>
+                     
+                       {{/each}}
+                    </select>
+                   
+                  </div>
+                  
+                  <div class="form-group mb-3">
+                    <label
+                      for="description"
+                      >Description</label
+                    >
+                    <textarea
+                    name="description"
+                      class="form-control validate"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="form-group mb-3">
+                    <label
+                      for="product_type"
+                      >Product type</label
+                    >
+                    <select
+                      class="custom-select tm-select-accounts"
+                      id="product_type"
+                      name="product_type">
+                      <option selected>Select category</option>
+                      <option value="New_Arrival">New Arrival</option>
+                      <option value="Most_Popular">Most Popular</option>
+                      <option value="Trending">Trending</option>
+                    </select>
+                  </div>
+                  <div class="row">
+                      
+                        <div class="form-group mb-3 col-xs-12 col-sm-6">
+                          <label
+                            for="stock"
+                            >Units In Stock
+                          </label>
+                          <input
+                            id="stock"
+                            name="stock"
+                            type="number"
+                            class="form-control validate"
+                            required
+                          />
+                        </div>
+                  </div>
+                  
+              </div>
+
+</main>
+{{!-- 
+<input type="file" id="img1" name="img1" hidden required onchange="readURL(this)" accept="image/*">
+                      <div id="crop">
+       <img src="https://www.pngkey.com/png/full/909-9099231_png-file-svg-camera-add-icon-png.png" id="pic1" style="width: 4rem;" alt="">
+                                </div>
+                                <div id="cropped_result"></div>
+                                <div align="center"> 
+                                <button type="button" id="crop_button" style="visibility: hidden;">Crop</button>
+                                </div> 
+                                <img id="image" style="width: 200;height: 200;" src="" alt=""> --}}
+
+                                {{!-- <input type="file"  name="image1" id="image1" src=""  > --}}
+ <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+
+<script>
+                                $('#pic1').click(function(){
+                                    $('#img1').click()
+                                })
+                                function readURL(input) {
+                                    if (input.files && input.files[0]) {
+                                      var reader = new FileReader();
+                                      reader.onload = function (e) {
+                                        $('#pic1').attr('src', e.target.result)
+                                       
+                                      };
+                                      reader.readAsDataURL(input.files[0]);
+                                      setTimeout(initCropper, 1000);
+                                      $('#crop_button').css({"visibility": "visible"})
+                                    }
+                                  }
+                                  function initCropper(){
+                                    console.log("Came here")
+                                    var image = document.getElementById('pic1');
+                                    var cropper = new Cropper(image, {
+                                      aspectRatio: 16 / 9,
+                                      crop: function(e) {
+                                        console.log(e.detail.x);
+                                        console.log(e.detail.y);
+                                      }
+                                    });
+                                  
+                                    // On crop button clicked
+                                    document.getElementById('crop_button').addEventListener('click', function(){
+                                      var imgurl =  cropper.getCroppedCanvas().toDataURL();
+                                      var img = document.createElement("img");
+                                      img.src = imgurl;
+                                      img.width="200";
+                                      img.height='100';
+                                       console.log("Came heresss")
+                                      $('#crop_button').css({"visibility": "hidden"})
+                                      $('#crop').css({"visibility": "hidden"})
+                                      document.getElementById("image").replaceWith(img)
+                                    
+                                      document.getElementById("image1").value=img
+
+                                      //var filereader = new FileReader()
+                                        
+                                     
+                                    })
+                                  }
+                            </script>
+
+
+
+
+
+
+
+
+
+  {{!-- let result = document.querySelector('.result'),
+img_result = document.querySelector('.img-result'),
+img_w = document.querySelector('.img-w'),
+img_h = document.querySelector('.img-h'),
+options = document.querySelector('.options'),
+save = document.querySelector('.save'),
+cropped = document.querySelector('.cropped'),
+dwn = document.querySelector('.download'),
+upload = document.querySelector('#file-input'),
+cropper = '';
+
+// on change show image with crop options
+upload.addEventListener('change', (e) => {
+  if (e.target.files.length) {
+    // start file reader
+    const reader = new FileReader();
+    reader.onload = (e)=> {
+      if(e.target.result){
+        // create new image
+        let img = document.createElement('img');
+        img.id = 'image';
+        img.src = e.target.result
+        // clean result before
+        result.innerHTML = '';
+        // append new image
+        result.appendChild(img);
+        // show save btn and options
+        save.classList.remove('hide');
+        options.classList.remove('hide');
+        // init cropper
+        cropper = new Cropper(img);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
+});
+
+// save on click
+save.addEventListener('click',(e)=>{
+  e.preventDefault();
+  // get result to data uri
+  let imgSrc = cropper.getCroppedCanvas({
+    width: img_w.value // input value
+  }).toDataURL();
+  // remove hide class of img
+  cropped.classList.remove('hide');
+  img_result.classList.remove('hide');
+  // show image cropped
+  cropped.src = imgSrc;
+  dwn.classList.remove('hide');
+  dwn.download = 'imagename.png';
+  dwn.setAttribute('href',imgSrc);
+});
+
+</script> --}}
+
+
+
+
+
+
+
+ <script>
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+</script>   
+
+
+             
+
+
+
+<style>
+  .page {
+  margin: 1em auto;
+  max-width: 768px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.box {
+  padding: 0.5em;
+  width: 100%;
+  margin:0.5em;
+}
+
+.box-2 {
+  padding: 0.5em;
+  width: calc(100%/2 - 1em);
+}
+
+.options label,
+.options input{
+  width:4em;
+  padding:0.5em 1em;
+}
+.btn{
+  background:white;
+  color:black;
+  border:1px solid black;
+  padding: 0.5em 1em;
+  text-decoration:none;
+  margin:0.8em 0.3em;
+  display:inline-block;
+  cursor:pointer;
+}
+
+.hide {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}
+</style>
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="jquery-ui-datepicker/jquery-ui.min.js"></script>
+    <!-- https://jqueryui.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+      $(function() {
+        $("#make_date").datepicker();
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+{{!-- 
+
+
+
+
+{{!-- 
+
+
+ <div>
+  <label for="Image" style="color: white;">IMAGE 1</label>
+  <img id="previewImg"style="height: 90px; width: 90px;"  alt=""  src="data:image/png;base64,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">
+  <input type="file" name="Image" id="Image" class="form-control" onchange="previewFile(this);" required>
+</div>  --}}
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div>
+  <label for="image" style="color: white;">IMAGE 2</label>
+  <input type="file" name="image2" id="Image2" class="form-control">
+</div> --}}
+
+<!-- contents of this file will be placed inside the <body> -->
+{{!-- <div>
+  <input type="file" name="photo" accept="image/*" class="js-photo-upload">
+</div> --}}
+
+{{!--   template   --}}
+{{!-- 
+
+<main class="page">
+  <h2>upload an Image.</h2>
+  <!-- input file -->
+  <div class="box">
+    <input type="file" id="file-input">
+  </div>
+  <!-- leftbox -->
+  <div class="box-2">
+    <div class="result"></div>
+  </div>
+  <!--rightbox-->
+  <div class="box-2 img-result hide">
+    <!-- result of crop -->
+    <img class="cropped" src="" alt=""  >
+    <input type="file" value="">
+  </div>
+  <!-- input file -->
+  <div class="box">
+    <div class="options hide">
+      <label> Width</label>
+   
+      <input type="file"  name="Image" id="Image" class="form-control img-w"  value="300" min="100" max="1200" />
+    </div>
+    <!-- save btn -->
+    <button class="btn save hide">Save</button>
+    <!-- download btn -->
+    <a href="" class="btn download hide"  >download the cropped image</a> --}}
+    {{!-- <input type="files" name="" id=""> --}}
+  </div>
+  {{!-- <label for="image">upload the cropped Image</label>
+  
+ <input type="file" name="Image" id="Image" class="form-control" onchange="previewFile(this);" required>--}}
+
+<input type="file" id="Image" value=""> 
+
+
+

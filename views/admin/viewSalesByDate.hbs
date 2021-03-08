@@ -1,0 +1,82 @@
+
+  <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <ul class="nav nav-pills">
+  
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Take actions</a>
+        <div class="dropdown-menu">
+            <a href="/new-coupon" class="dropdown-item">Generate a new Coupen</a>
+             {{!-- <a href="/create-offer-ByCategory" class="dropdown-item">create a new offer Category Wise</a> --}}
+              
+            
+          
+            {{!-- <div class="dropdown-divider"></div>
+            <a href="#"class="dropdown-item">Trash</a>
+        </div> --}}
+    </li>
+  
+      <li class="nav-item active">
+        <a class="nav-link" href="/adminlogout">Logout <span class="sr-only">(current)</span></a>
+      </li>
+   
+    </ul>
+  </div>
+</nav>
+
+
+
+<body>
+
+
+<form method="POST" action="/findReportbyDate">
+  <label>From Date</label>
+  <input type="date" id="fromDate" name="fromDate">
+  To Date  <input type="Date" id="toDate" name="toDate">
+  <button type="submit" id="button">search</button>
+</form>
+
+
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+              <th style="font-weight: bolder;">Sl.No</th>  
+               <th style="font-weight: bolder;">Date</th>  
+            <th style="font-weight: bolder;">Order Id</th>  
+             <th style="font-weight: bolder;">status</th>  
+            <th style="font-weight: bolder;">Total Amount</th>  
+              
+            
+        
+
+            {{!-- <th></th>  --}}
+          </tr>  
+        </thead>  
+        <tbody>  
+          {{#each response}}
+       
+          <tr>  
+        <td>{{@index}}</td>
+          <td>{{this.Date}}</td>
+          <td>{{this._id}}</td>
+          <td> {{ this.status}}</td>
+           <td>{{this.totalamount}}</a></td>
+     
+          </tr>  
+      
+     {{/each}}
+        </tbody>  
+        
+      </table>  
+	  </div>
+</body>  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</body>
+</html>  

@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col" >Date</th>
+      <th scope="col">Payment Mode</th>
+      <th scope="col">Total Amount</th>
+      <th scope="col">Status</th>
+      <th scope="col">action</th>
+     {{!-- <th scope="col">Add a feedback about this Order</th> --}}
+      
+    </tr>
+  </thead>
+  <tbody>
+      {{#each orders}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+    
+      <td>{{this.Date}}</td>
+      <td>{{this.paymentMethod}}</td>
+      <td>{{this.totalamount}}</td>
+      <td>{{this.status}}</td>
+     <td><a href="/viewProducts/{{this._id}}"> <button class="btn">View Products </button></a></td>  
+    </tr>
+   {{/each}}
+  </tbody>
+</table>

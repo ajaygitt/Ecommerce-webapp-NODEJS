@@ -1,0 +1,144 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+
+
+<link rel="stylesheet" href="">
+
+<link rel="stylesheet" href="">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+
+
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+    <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            
+                            {{!-- <li class="dropdown nav-item">
+                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <i class="nc-icon nc-planet"></i>
+                                    <span class="notification">5</span>
+                                    <span class="d-lg-none">Notification</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Notification 1</a>
+                                    <a class="dropdown-item" href="#">Notification 2</a>
+                                    <a class="dropdown-item" href="#">Notification 3</a>
+                                    <a class="dropdown-item" href="#">Notification 4</a>
+                                    <a class="dropdown-item" href="#">Another notification</a>
+                                </ul>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nc-icon nc-zoom-split"></i>
+                                    <span class="d-lg-block">&nbsp;Search</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            {{!-- <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <span class="no-icon">Account</span>
+                                </a>
+                            </li> --}}
+                            {{!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="no-icon">Dropdown</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <span class="no-icon" style="font-weight: bolder;" >Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+
+
+
+
+
+
+{{!-- <!-- As a link -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/adhome">Home</a>
+</nav>
+
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Navbar</span>
+</nav>
+ --}}
+
+
+<body>
+
+
+
+
+
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+            <th>Name</th>  
+            <th>Email</th>  
+            <th>Phone Number</th>  
+            <th>blockuser</th> 
+            <th></th>
+            {{!-- <th></th>  --}}
+          </tr>  
+        </thead>  
+        <tbody>  
+            {{#each data}}
+          <tr>  
+            <td>{{{this.first_name}}}</td>  
+            <td>{{this.email}}</td>  
+            <td>{{this.phonenumber}}</td>  
+            {{!-- <td><a href="/blockUser/{{this._id}}"><button type="button" class="btn btn-primary">View & Edit </button></a></td> --}}
+               <td><a href="/edituser/{{this._id}}"><button type="button" class="btn btn-primary">View & Edit </button></a></td>
+         {{!-- <td><a href="/blockuser"><button><input type="checkbox" checked data-toggle="toggle" data-on="Active" data-off="Blocked" data-onstyle="success" data-offstyle="danger"> </button> </td></a> --}}
+{{!-- <td> <a href="/deleteuser/{{this._id}}" style="color:black;"onclick="return confirm('Are you sure you want to delete this user');"><button type="button" class="btn btn-danger">Delete</button></td> </a> --}}
+
+<td> {{#if this.status}}  <a href="/unblock-user/{{this._id}}"> <button type="button" class="btn btn-warning">Unblock</button></a>
+ </td>
+ {{else}}
+
+    <a href="/block-user/{{this._id}}"> <button type="button" class="btn btn-danger">Block☠</button></a>
+{{/if}}
+
+          </tr>  
+          {{/each}}
+     
+        </tbody>  
+      </table>  
+	  </div>
+</body>  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</body>
+</html>  

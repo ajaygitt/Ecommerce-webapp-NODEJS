@@ -1,0 +1,78 @@
+  <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin" style="font-weight: bolder;"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            
+                           
+                        <ul class="navbar-nav ml-auto">
+                            
+                              <li class="nav-item">
+                                <a class="nav-link" href="/new-coupon">
+                                    <span class="no-icon" style="font-weight: bolder;">create a new Coupon</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/adminlogout">
+                                    <span class="no-icon" style="font-weight: bolder;">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+  <!-- Navbar -->
+      
+
+<body>
+
+
+
+
+
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+              <th style="font-weight: bolder;">Sl.No</th>  
+            <th style="font-weight: bolder;">Offer discount rate
+                 </th>  
+            <th style="font-weight: bolder;">Coupon</th>  
+              <th style="font-weight: bolder;">status</th>  
+            
+        
+
+            {{!-- <th></th>  --}}
+          </tr>  
+        </thead>  
+        <tbody>  
+          {{#each coupons}}
+       
+          <tr>  
+        <td>{{@index}}</td>
+          <td>{{this.offer}}%</td>
+          <td>{{this.coupon}}</td>
+          <td> {{#if this.status}} Valid {{else}}Expired! {{/if}}</td>
+           <td><a href="/delete-coupon/{{this._id}}"><button class="btn btn-danger">Deactivate</button></a></td>
+     
+          </tr>  
+      
+     {{/each}}
+        </tbody>  
+        
+      </table>  
+	  </div>
+</body>  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</body>
+</html>  

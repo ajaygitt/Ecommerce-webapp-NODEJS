@@ -1,0 +1,190 @@
+  {{!-- <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin" style="font-weight: bolder;"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            
+                           
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/addproduct">
+                                    <span class="no-icon" style="font-weight: bolder;">Add New Product</span>
+                                </a>
+                            </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/addmanufacturer">
+                                    <span class="no-icon" style="font-weight: bolder;">Add New Manufacturer</span>
+                                </a>
+                            </li>
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">
+                                    <span class="no-icon" style="font-weight: bolder;">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+  
+
+<body>
+    
+<div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                               
+                             
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+
+
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+            <th>Name of Product</th> 
+           
+            <th>Manufacturer</th>  
+            <th>category</th>  
+            <th>Stock left</th> 
+            <th>Price</th> 
+    
+            <th>Preview</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>  
+        </thead>  
+        <tbody>  
+            {{#each data}}
+          <tr>  
+            <td>{{{this.name}}}</td>  
+            <td>{{this.manufacturer}}</td>  
+            <td>{{this.category}}</td>  
+          <td>{{this.stock}}</td> 
+           <td>{{this.price}}</td> 
+           <td><img src="images/product-image/{{this._id}}.jpg" style="width:80px; height:80px" alt=""></td>
+
+      <td><a href="/edit-product/{{this._id}}" style="color: white; " ><button type="button" class="btn btn-primary">EDIT</a> </button></td>  
+  
+    <td><a href="/delete-product/{{this._id}}" style="color:black;"onclick="return confirm('Are you sure you want to delete this user');"><button type="button" class="btn btn-danger">DELETE</a></button></td>  
+       
+          </tr>  
+          {{/each}}
+     
+        </tbody>  
+      </table>  
+	  </div>
+</body>  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</html>    
+
+ --}}
+  <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin" style="font-weight: bolder;"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            
+                           
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/addproduct">
+                                    <span class="no-icon" style="font-weight: bolder;">Add New Product</span>
+                                </a>
+                            </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/addmanufacturer">
+                                    <span class="no-icon" style="font-weight: bolder;">Add New Manufacturer</span>
+                                </a>
+                            </li>
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">
+                                    <span class="no-icon" style="font-weight: bolder;">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+                    
+                    
+                    
+                    
+                    
+                    
+                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+                       
+                        <div class="card mb-4">
+                            <div class="card-header">
+                             
+                                {{!-- <button class="btn-primary"><a href="/addcategory" style="color: white;">Create A New Category</a></button>
+                            <button class="btn-primary"><a href="/addmanufacturer" style="color: white;">Add A New Manufacturer</a></button> --}}
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+
+
+</div>
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+              
+            <th>Preview</th>
+           <th>Name of Product</th> 
+           
+            <th>Manufacturer</th>  
+            <th>category</th>  
+          
+            <th>Price</th> 
+    
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>  
+        </thead>  
+        <tbody>  
+            {{#each data}}
+          <tr>               <td><img src="images/product-image/{{this._id}}.jpg" style="width:80px; height:80px" alt=""></td>
+               <td>{{{this.name}}}</td>  
+            <td>{{this.manufacturer}}</td>  
+            <td>{{this.category}}</td>  
+      
+           <td>{{this.price}}</td> 
+            
+
+
+
+     <td><a href="/edit-product/{{this._id}}" style="color: white; " ><button type="button" class="btn btn-primary">EDIT</a> </button></td>  
+     <td><a href="/delete-product/{{this._id}}" style="color:black;"onclick="return confirm('Are you sure you want to delete this user');"><button type="button" class="btn btn-danger">DELETE</a></button></td>  
+          </tr> 
+          {{/each}}
+     
+        </tbody>  
+      </table>  
+	  </div>
+</body>  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</html>  

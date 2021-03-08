@@ -1,0 +1,127 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+   <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin" style="font-weight: bolder;"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            
+                           
+                        <ul class="navbar-nav ml-auto">
+                           
+                             
+                             
+                           
+                            <li class="nav-item">
+                                <a class="nav-link" href="/adminlogout">
+                                    <span class="no-icon" style="font-weight: bolder;">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+  <!-- Navbar -->
+        
+
+
+<body>
+    <p>search by date for result the sales</p>
+  <form method="POST" action="/findReportbyDate">
+  <label>From Date</label>
+  <input type="date" id="fromDate" name="fromDate">
+  To Date  <input type="Date" id="toDate" name="toDate">
+  <button type="submit" id="button">search</button>
+</form>
+
+
+
+
+
+<div class="mt-5">
+ <h1 style="text-align: center;"><u> Sales report</u></h1>
+<canvas id="miepie" width="auto" height="auto"></canvas>
+</div>
+
+</body>
+
+
+
+
+
+
+
+<script>
+
+
+
+var ctx = document.getElementById('miepie');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['On previous month', 'On this month'],
+        datasets: [{
+            label: '# of Votes',
+            data: [{{monthsales.total}}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+var mixedChart = new Chart(ctx, {
+    data: {
+        datasets: [{
+            type: 'bar',
+            label: 'Bar Dataset',
+            data: [10, 20, 30, 40]
+        }, {
+            type: 'line',
+            label: 'Line Dataset',
+            data: [50, 50, 50, 50],
+        }],
+        labels: ['January', 'February', 'March', 'April']
+    },
+    options: options
+});
+</script> 

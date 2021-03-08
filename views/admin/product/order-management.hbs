@@ -1,0 +1,83 @@
+  <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin" style="font-weight: bolder;"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            
+                           
+                        <ul class="navbar-nav ml-auto">
+                         
+                          
+                            <li class="nav-item">
+                                <a class="nav-link" href="/manage-orders">
+                                    <span class="no-icon" style="font-weight: bolder; float:right;">Approve or reject a product</span>
+                                </a>
+                            </li>
+
+
+
+<li class="nav-item">
+                                <a class="nav-link" href="/manage-orders">
+                                    <span class="no-icon" style="font-weight: bolder; float:right;">delete an order</span>
+                                </a>
+                            </li>
+                            
+
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+<body>
+
+
+
+
+
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+            <th style="font-weight: bolder;">Order Id</th>  
+            <th style="font-weight: bolder;">date</th>  
+             <th style="font-weight: bolder;">payment method</th> 
+              <th style="font-weight: bolder;">amount</th>  
+            <th style="font-weight: bolder;">status</th>
+           
+            
+            {{!-- <th></th>  --}}
+          </tr>  
+        </thead>  
+        <tbody>  
+          
+          <tr>  
+            {{#each orders}}
+           
+            <td>{{this._id}}</td>
+             <td>{{this.deliveryDetails.date}}</td>    
+            <td>{{this.paymentMethod}}</td>  
+          <td>{{this.totalamount}}</td>
+          <td>{{this.status}}</td>
+          
+
+          </tr>  
+          {{/each}}
+     
+        </tbody>  
+      </table>  
+	  </div>
+</body>  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</body>
+</html>  

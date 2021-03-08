@@ -1,0 +1,56 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<div class="container">
+<h1>Customer Reviews</h1>
+
+
+{{#each feedbacks}}
+    <div class="row-fluid"> 
+      <div class="col-sm-6">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <span itemscope itemtype="http://schema.org/Review">
+            <h3 class="panel-title" itemprop="name">{{this.username}}</h3>
+          </div><!--/panel-heading-->
+          <div class="panel-body" itemprop="reviewBody">
+            <p>{{this.feedback}}!</p>
+
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <small>
+              <span itemprop="name">{{this.email}}</span>
+            </span><!--/author schema -->
+
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+
+              <meta itemprop="datePublished" content="01-01-2016">{{this.Date}}
+              
+              <span class="pull-right">
+              <span class="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                <meta itemprop="worstRating" content="{{this.rating}}">
+                  <span itemprop="ratingValue">{{this.rating}}</span> / 
+                <span itemprop="bestRating"> stars </span>
+              </span><!--/reviewRating-->
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </small>
+          </div><!--/panel-body-->
+          
+          <div class="panel-footer clearfix">
+              {{!-- <div class="col-sm-1"><i class="fa fa-facebook-official fa-2x"></i></div>
+              <div class="col-sm-1"><i class="fa fa-twitter-square fa-2x"></i></div>
+              <div class="col-sm-1"><i class="fa fa-google-plus fa-2x"></i></div> --}}
+          </div><!--/panel-footer-->
+        </div><!--/panel-->
+      </div><!--/col-sm-6-->
+     
+      {{/each}}
+
+      
+ 

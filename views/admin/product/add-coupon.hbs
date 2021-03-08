@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Add Product - Dashboard HTML Template</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"/>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.0.0/cropper.min.js"></script>
+
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.0.0/cropper.min.css" integrity="sha256-FeDcPwV8ZgxG1MU5L/b2i8clOmqZJKK0eyDHqrQaXxY=" crossorigin="anonymous" />
+
+
+
+
+
+ <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/admin"> Dashboard </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+                            
+       
+                                   
+                                </ul>
+                            </li>
+                          
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                        
+                          
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+  </head>
+  <!-- Navbar -->
+          
+            <!-- End Navbar -->
+    <div class="container tm-mt-big tm-mb-big">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">Generate A New Coupon</h2>
+              </div>
+            </div>
+            <div class="row tm-edit-product-row">
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                
+              
+            
+ <form  class="tm-edit-product-form" method="POST"  action="/new-coupon">
+
+       
+
+                 
+
+
+
+                  <div class="form-group mb-3">
+                    <label
+                      for="price"
+                      >Discount percentage (in %)
+                    </label>
+                    <input
+                      id="offer"
+                      name="offer"
+                      type="number"
+                      class="form-control validate"
+                      required
+                    />
+                  </div>
+
+
+   <div class="col-12">
+       <button class="btn btn-success" id="button" >generate coupon code</button>
+       </div>
+
+
+                  <div class="form-group mb-3">
+                    <label
+                      for="price"
+                      >Discount percentage (in %)
+                    </label>
+                    <input
+                      id="coupon"
+                      name="coupon"
+                      type="text"
+                      class="form-control validate"
+                      required
+                    />
+                  </div>
+
+
+
+                 
+                 
+
+</main>
+
+ <div class="col-12">
+                <button type="submit" id="submit" class="btn btn-primary btn-block text-uppercase">Generate Coupon Now</button>
+              </div>
+             
+                   
+            </form>
+         
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+   </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$('#button').click((e)=>{
+
+    e.preventDefault()
+$.ajax({
+    method:'get',
+    url:'/generate-couponCode',
+        
+    success:(response)=>{
+        console.log('Ivide ethii')
+        console.log(response)
+        $('#coupon').val(response)
+    }
+})
+})
+
+
+
+</script>

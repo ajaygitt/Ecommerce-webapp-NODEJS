@@ -1,0 +1,77 @@
+
+  <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <ul class="nav nav-pills">
+  
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Take actions</a>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">Approve or reject a product</a>
+            <a href="#" class="dropdown-item">delete an order</a>
+            <a href="#" class="dropdown-item">view order by user wise</a>
+            {{!-- <div class="dropdown-divider"></div>
+            <a href="#"class="dropdown-item">Trash</a>
+        </div> --}}
+    </li>
+  
+      <li class="nav-item active">
+        <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+      </li>
+   
+    </ul>
+  </div>
+</nav>
+
+
+
+<body>
+
+
+
+
+
+<table id="myTable" class="table table-striped" >  
+        <thead>  
+          <tr>  
+            <th style="font-weight: bolder;">Order Id</th>  
+            <th style="font-weight: bolder;">date</th>  
+             <th style="font-weight: bolder;">payment method</th> 
+              <th style="font-weight: bolder;">amount</th>  
+            <th style="font-weight: bolder;">status</th>
+            <th style="font-weight: bolder;"> approval</th>
+            {{!-- <th style="font-weight: bolder;"> reject</th> --}}
+            <th style="font-weight: bolder;"> delete</th>
+            {{!-- <th></th>  --}}
+          </tr>  
+        </thead>  
+        <tbody>  
+          
+          <tr>  
+            {{#each orders}}
+           
+            <td>{{this._id}}</td>
+             <td>{{this.deliveryDetails.date}}</td>    
+            <td>{{this.paymentMethod}}</td>  
+          <td>{{this.totalamount}}</td>
+          <td>{{this.status}}</td>
+  <td><a href="/approve-shipping/{{this._id}}"> <button class="btn btn-success">approve shipping</button> </td></a>
+   <td><a href="/reject-order/{{this._id}}"> <button class="btn btn-danger">reject order</buton> </td></a>
+         <td><a href="/delete-order/{{this._id}}"> <button class="btn btn-danger">delete order</buton> </td></a>
+         {{!-- <td> <button class="btn btn-primary">s</buton> </td> --}}
+          </tr>  
+          {{/each}}
+     
+        </tbody>  
+      </table>  
+	  </div>
+</body>  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+</body>
+</html>  
